@@ -23,4 +23,4 @@ RUN chown redis:redis /redis-sentinel/* && \
 EXPOSE 26379
 
 # dat entrypoint cho contaienr thu thi lenh chay service sentinel
-ENTRYPOINT ["/usr/local/bin/sentinel-entrypoint.sh"]
+ENTRYPOINT ["/opt/redis-master/redis-sentinel/sentinel-entrypoint.sh"]
