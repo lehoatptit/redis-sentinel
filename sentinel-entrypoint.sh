@@ -4,6 +4,7 @@
 # dam bao thu muc log va data phai ton tai de chay service sentinel trong container 
 mkdir -p /redis-sentinel/data
 mkdir -p /redis-sentinel/logs
+chmod -R 777 /redis-sentinel/data /redis-sentinel/logs
 #chay service sentinel
 redis-server /redis/sentinel.conf --sentinel
 #kiem tra quyen file entrypoint tren docker host phai dam bao co quyen thuc thi file 
