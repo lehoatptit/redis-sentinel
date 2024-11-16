@@ -13,6 +13,9 @@ services:
       - ${redis_config_path}/redis.conf:/usr/local/etc/redis/redis.conf
       - ${redis_path}data:/data
       - ${redis_path}logs:/data/logs
+# cau hinh time container dong bo voi time docker host
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
     networks:
       - redis-master-net
 #2. contaienr redis-sentinel
@@ -29,6 +32,9 @@ services:
       - ${redis_sentinel_config_path}/sentinel.conf:/redis-sentinel/sentinel.conf
       - ${redis_sentinel_path}/data:/redis-sentinel/data
       - ${redis_sentinel_path}/logs:/redis-sentinel/logs
+# cau hinh time container dong bo voi time docker host
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
     networks:
       - redis-master-net
 networks:
