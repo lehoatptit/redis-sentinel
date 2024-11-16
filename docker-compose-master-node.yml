@@ -1,5 +1,6 @@
 #docker-compose cho master node
 version: '3'
+#bien duong dan khai bao trong file .env
 
 services:
 #1. contaienr redis-master node
@@ -17,7 +18,7 @@ services:
 #2. contaienr redis-sentinel
   redis-sentinel:
     build:
-      context: ./redis-sentinel
+      context: ${redis_sentinel_path}
       dockerfile: Dockerfile
     container_name: redis-master-sentinel
     depends_on:
