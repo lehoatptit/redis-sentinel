@@ -14,9 +14,9 @@ sudo mkdir -p /opt/redis-master/redis-sentinel/conf/
 sudo curl -o /opt/redis-master/redis-sentinel/conf/sentinel.conf https://raw.githubusercontent.com/lehoatptit/redis-sentinel/main/sentinel.conf
 sudo mkdir -p /opt/redis-master/redis-sentinel/data
 sudo mkdir -p /opt/redis-master/redis-sentinel/log
-sudo curl -o  /opt/redis-master/redis-sentinel/Dockerfile https://raw.githubusercontent.com/lehoatptit/redis-sentinel/blob/main/Dockerfile-redis-sentinel
-sudo curl -o  /opt/redis-master/redis-sentinel/sentinel-entrypoint.sh https://raw.githubusercontent.com/lehoatptit/redis-sentinel/blob/main/sentinel-entrypoint.sh
-sudo curl -o  /opt/redis-master/redis-sentinel/docker-compose.yml https://raw.githubusercontent.com/lehoatptit/redis-sentinel/blob/main/docker-compose-master-node.yml
+sudo curl -o  /opt/redis-master/redis-sentinel/Dockerfile https://raw.githubusercontent.com/lehoatptit/redis-sentinel/main/Dockerfile-redis-sentinel
+sudo curl -o  /opt/redis-master/redis-sentinel/sentinel-entrypoint.sh https://raw.githubusercontent.com/lehoatptit/redis-sentinel//main/sentinel-entrypoint.sh
+sudo curl -o  /opt/redis-master/redis-sentinel/docker-compose.yml https://raw.githubusercontent.com/lehoatptit/redis-sentinel/main/docker-compose-master-node.yml
 
 #change quyen thu thi
 sudo chmod -R 755 /opt/redis-master
