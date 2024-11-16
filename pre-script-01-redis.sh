@@ -1,4 +1,4 @@
-cat << EOF > pre-script-01.sh
+#file prepare cho viec cai dat redis-master node 
 #!/bin/bash
 # Install tree package
 dnf install tree -y 
@@ -14,9 +14,12 @@ sudo mkdir -p /opt/redis-master/redis-sentinel/conf/
 sudo curl -o /opt/redis-master/redis-sentinel/conf/sentinel.conf https://raw.githubusercontent.com/lehoatptit/redis-sentinel/main/sentinel.conf
 sudo mkdir -p /opt/redis-master/redis-sentinel/data
 sudo mkdir -p /opt/redis-master/redis-sentinel/log
-sudo chmod -R 755 /opt/redis-sentinel
+sudo curl -o  /opt/redis-master/redis-sentinel/Dockerfile https://raw.githubusercontent.com/lehoatptit/redis-sentinel/blob/main/Dockerfile-redis-sentinel
+sudo curl -o  /opt/redis-master/redis-sentinel/sentinel-entrypoint.sh https://raw.githubusercontent.com/lehoatptit/redis-sentinel/blob/main/sentinel-entrypoint.sh
+sudo curl -o  /opt/redis-master/redis-sentinel/docker-compose.yml https://raw.githubusercontent.com/lehoatptit/redis-sentinel/blob/main/docker-compose-master-node.yml
 
+#change quyen thu thi
+sudo chmod -R 755 /opt/redis-master
 #hien thi danh sach cac thu muc /opt
 echo " cay thu muc vua tao duoc la:"
 tree -L 3 /opt
-EOF
