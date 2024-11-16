@@ -1,4 +1,5 @@
-FROM redis:6-alpine
+#redis version 7.4.1
+FROM docker.io/library/redis:7.4.1-alpine3.20
 
 #tao thu muc lam viec 
 RUN mkdir -p /redis-sentinel
