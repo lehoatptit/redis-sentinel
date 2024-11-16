@@ -1,0 +1,35 @@
+#docker-compose cho master node
+version: '3'
+
+services:
+#1. contaienr redis-master node
+  redis-master:
+    image: redis:7.4.1-alpine3.20
+    container_name: redis-master
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - data:/data
+      - logs:/data/logs
+    networks:
+      - redis-master-net
+#2. contaienr redis-sentinel
+  redis-sentinel:
+    build:
+      context: ./redis-sentinel
+      dockerfile: Dockerfile
+    container_name: redis-master-sentinel
+    depends_on:
+      - redis-master
+    ports:
+      - "26379:26379"
+    volumes:
+      - ./conf/sentinel.conf:/redis-sentinel/sentinel.conf
+      - data:/redis-sentinel/data
+      - logs:/redis-sentinel/logs
+    networks:
+      - redis-master-net
+networks:
+  redis-master-net:
+    driver: bridge
