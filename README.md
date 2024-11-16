@@ -1,2 +1,1 @@
-# redis-sentinel
-redis-sentiel-docker
+huong dan cai dat redis va redis sentinel tren docker
