@@ -1,5 +1,12 @@
 #docker-compose cho master node
 version: '3'
+#khai bao bien duong dan redis
+redis_path=/opt/redis-master/
+redis_config_path=/opt/redis-master/conf/
+
+#khai bao bien duong dan redis sentinel
+redis_sentinel_path=/opt/redis-master/redis-sentinel/
+redis_sentinel_config_path=/opt/redis-master/redis-sentinel/conf/
 
 services:
 #1. contaienr redis-master node
@@ -9,9 +16,9 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - ./conf/redis.conf:/usr/local/etc/redis/redis.conf
-      - data:/data
-      - logs:/data/logs
+      - ${redis_config_path}/redis.conf:/usr/local/etc/redis/redis.conf
+      - ${redis_path}data:/data
+      - ${redis_path}logs:/data/logs
     networks:
       - redis-master-net
 #2. contaienr redis-sentinel
@@ -25,9 +32,9 @@ services:
     ports:
       - "26379:26379"
     volumes:
-      - ./conf/sentinel.conf:/redis-sentinel/sentinel.conf
-      - data:/redis-sentinel/data
-      - logs:/redis-sentinel/logs
+      - ${redis_sentinel_config_path}/sentinel.conf:/redis-sentinel/sentinel.conf
+      - ${redis_sentinel_path}/data:/redis-sentinel/data
+      - ${redis_sentinel_path}/logs:/redis-sentinel/logs
     networks:
       - redis-master-net
 networks:
