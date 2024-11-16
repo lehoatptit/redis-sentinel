@@ -1,12 +1,5 @@
 #docker-compose cho master node
 version: '3'
-#khai bao bien duong dan redis
-redis_path="/opt/redis-master"
-redis_config_path="/opt/redis-master/conf"
-
-#khai bao bien duong dan redis sentinel
-redis_sentinel_path="/opt/redis-master/redis-sentinel"
-redis_sentinel_config_path="/opt/redis-master/redis-sentinel/conf"
 
 services:
 #1. contaienr redis-master node
