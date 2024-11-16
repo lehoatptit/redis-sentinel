@@ -10,7 +10,7 @@ RUN mkdir -p /redis-sentinel/data && \
 WORKDIR /redis-sentinel
 
 # Copy file sentinel.conf vao container
-COPY sentinel.conf /redis-sentinel/sentinel.conf
+COPY /conf/sentinel.conf /redis-sentinel/sentinel.conf
 
 # Copy script entrypoint
 COPY sentinel-entrypoint.sh /usr/local/bin/
